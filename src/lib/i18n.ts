@@ -1,0 +1,420 @@
+// ── Bilingual dictionary (Arabic / English) ─────────────────
+export type Locale = "ar" | "en";
+export const LANG_COOKIE = "lamsa_lang";
+export const LOCALES: Locale[] = ["ar", "en"];
+
+type Pair = { ar: string; en: string };
+
+export const dict: Record<string, Pair> = {
+  // ── Header / Nav
+  "nav.home": { ar: "الرئيسية", en: "Home" },
+  "nav.sections": { ar: "الأقسام", en: "Sections" },
+  "nav.latest": { ar: "أحدث الإعلانات", en: "Latest Ads" },
+  "nav.deals": { ar: "العروض", en: "Deals" },
+  "nav.login": { ar: "دخول", en: "Sign In" },
+  "nav.register": { ar: "حساب جديد", en: "Sign Up" },
+  "nav.addAd": { ar: "أضيفي إعلانك", en: "Post an Ad" },
+  "nav.logout": { ar: "تسجيل الخروج", en: "Sign Out" },
+  "nav.myPanel": { ar: "لوحتي", en: "My Panel" },
+  "nav.menu": { ar: "القائمة", en: "Menu" },
+  "nav.searchPh": { ar: "ابحثي عن مكياج، فستان، عطر…", en: "Search makeup, dresses, perfumes…" },
+  "nav.search": { ar: "بحث", en: "Search" },
+
+  // ── Common
+  "common.viewAll": { ar: "عرض الكل", en: "View All" },
+  "common.ads": { ar: "إعلان", en: "ads" },
+  "common.adsAvailable": { ar: "إعلان متاح", en: "ads available" },
+  "common.featured": { ar: "مميز", en: "Featured" },
+  "common.discount": { ar: "خصم", en: "OFF" },
+  "common.photos": { ar: "صور", en: "photos" },
+  "common.active": { ar: "نشط", en: "Active" },
+  "common.paused": { ar: "موقوف", en: "Paused" },
+  "common.edit": { ar: "تعديل", en: "Edit" },
+  "common.delete": { ar: "حذف", en: "Delete" },
+  "common.backHome": { ar: "العودة للرئيسية", en: "Back to Home" },
+  "common.home": { ar: "الرئيسية", en: "Home" },
+  "common.by": { ar: "بواسطة", en: "by" },
+
+  // ── Hero
+  "hero.badge": { ar: "منصة الإعلانات النسائية الأولى", en: "The #1 Women's Ads Platform" },
+  "hero.titleA": { ar: "كل ما تَعشقينه…", en: "Everything you love…" },
+  "hero.titleB": { ar: "بإعلانٍ واحد يصل إليكِ", en: "delivered through one ad" },
+  "hero.sub": {
+    ar: "مكياج، أزياء، عناية بالبشرة، عطور، حقائب ومجوهرات — تصفّحي آلاف الإعلانات مع الأسعار والتخفيضات الحقيقية، أو انشري إعلانك مجاناً خلال دقيقة.",
+    en: "Makeup, fashion, skincare, perfumes, bags & jewelry — browse thousands of ads with real prices and discounts, or post your own ad for free in a minute.",
+  },
+  "hero.browse": { ar: "تصفحي الأقسام", en: "Browse Sections" },
+  "hero.post": { ar: "أضيفي إعلانك مجاناً", en: "Post Your Ad Free" },
+  "hero.statAds": { ar: "إعلان نشط", en: "Active Ads" },
+  "hero.statUsers": { ar: "عضوة مسجلة", en: "Members" },
+  "hero.statCats": { ar: "قسم نسائي", en: "Sections" },
+  "hero.float1a": { ar: "تخفيضات حتى 70%", en: "Up to 70% Off" },
+  "hero.float1b": { ar: "على أقسام مختارة", en: "On selected sections" },
+  "hero.float2a": { ar: "إعلانات موثوقة", en: "Trusted Listings" },
+  "hero.float2b": { ar: "مراجعة من الإدارة", en: "Reviewed by our team" },
+  "hero.alt": { ar: "لمسة — عالم الجمال والأناقة النسائية", en: "Lamsa — the world of women's beauty & style" },
+
+  // ── Home
+  "home.sectionsTitle": { ar: "تسوّقي حسب القسم", en: "Shop by Section" },
+  "home.sectionsSub": {
+    ar: "أقسام نسائية مختارة بعناية: من المكياج إلى المجوهرات — كل ما تحتاجينه في مكان واحد",
+    en: "Carefully curated women's sections: from makeup to jewelry — everything you need in one place",
+  },
+  "home.dealsTitle": { ar: "إعلانات مميزة وتخفيضات لا تُفوَّت", en: "Featured Deals You Can't Miss" },
+  "home.dealsSub": {
+    ar: "مختارات الإدارة من أفضل العروض — أسعار قبل وبعد التخفيض بكل شفافية",
+    en: "Hand-picked by our team — before & after prices with full transparency",
+  },
+  "home.dealsEmpty": {
+    ar: "لا توجد عروض مميزة حالياً — عودي قريباً، التخفيضات تتجدد يومياً",
+    en: "No featured deals right now — come back soon, discounts refresh daily",
+  },
+  "home.latestTitle": { ar: "أحدث الإعلانات", en: "Latest Ads" },
+  "home.latestSub": {
+    ar: "جديد المتاجر والعضوات — يُحدَّث لحظياً مع كل إعلان منشور",
+    en: "Fresh from stores and members — updated live with every new ad",
+  },
+  "home.emptyAds": { ar: "لا توجد إعلانات منشورة بعد", en: "No ads published yet" },
+  "home.beFirst": { ar: "كوني أول من يعلن", en: "Be the first to post" },
+  "home.ctaTitle": { ar: "عندك منتج نسائي؟ حوّليه إلى دخل", en: "Have a women's product? Turn it into income" },
+  "home.ctaSub": {
+    ar: "أنشئي عضويتك المجانية، انشري إعلانك بالسعر والتخفيض ورابط متجرك، ودعي آلاف الزائرات يصلن إليكِ — كل ذلك في أقل من دقيقة.",
+    en: "Create your free membership, post your ad with price, discount and your store link, and let thousands of shoppers reach you — all in under a minute.",
+  },
+  "home.ctaJoin": { ar: "أنشئي حسابك مجاناً", en: "Create Free Account" },
+  "home.ctaLogin": { ar: "تسجيل الدخول", en: "Sign In" },
+
+  // ── Footer
+  "footer.sections": { ar: "الأقسام", en: "Sections" },
+  "footer.links": { ar: "روابط سريعة", en: "Quick Links" },
+  "footer.newsletter": { ar: "النشرة البريدية", en: "Newsletter" },
+  "footer.newsletterSub": {
+    ar: "اشتركي ليصلك جديد الإعلانات والتخفيضات قبل الجميع.",
+    en: "Subscribe to get the latest ads and discounts before everyone.",
+  },
+  "footer.emailPh": { ar: "بريدك الإلكتروني", en: "Your email address" },
+  "footer.subscribe": { ar: "اشتراك", en: "Subscribe" },
+  "footer.subscribed": { ar: "تم!", en: "Done!" },
+  "footer.home": { ar: "الرئيسية", en: "Home" },
+  "footer.register": { ar: "إنشاء عضوية", en: "Create Account" },
+  "footer.login": { ar: "تسجيل الدخول", en: "Sign In" },
+  "footer.postAd": { ar: "أضيفي إعلانك", en: "Post an Ad" },
+  "footer.adsTxt": { ar: "ملف ads.txt", en: "ads.txt File" },
+  "footer.sitemap": { ar: "خريطة الموقع", en: "Sitemap" },
+  "footer.rights": { ar: "جميع الحقوق محفوظة", en: "All rights reserved" },
+  "footer.madeFor": { ar: "صُنع بكل حب للمرأة العربية", en: "Made with love for women everywhere" },
+
+  // ── Ad banner labels
+  "ads.label": { ar: "إعلان", en: "Ad" },
+
+  // ── Category page
+  "cat.sort": { ar: "ترتيب حسب:", en: "Sort by:" },
+  "cat.new": { ar: "الأحدث", en: "Newest" },
+  "cat.cheap": { ar: "الأقل سعراً", en: "Lowest Price" },
+  "cat.expensive": { ar: "الأعلى سعراً", en: "Highest Price" },
+  "cat.popular": { ar: "الأكثر مشاهدة", en: "Most Viewed" },
+  "cat.empty": { ar: "لا توجد إعلانات في هذا القسم بعد", en: "No ads in this section yet" },
+  "cat.emptySub": { ar: "كوني أول من ينشر إعلاناً هنا", en: "Be the first to post here" },
+  "cat.other": { ar: "بقية الأقسام", en: "Other Sections" },
+  "cat.postAd": { ar: "أضيفي إعلانك", en: "Post Your Ad" },
+
+  // ── Search
+  "search.title": { ar: "ابحثي في كل الإعلانات", en: "Search All Ads" },
+  "search.resultsFor": { ar: "نتائج البحث عن:", en: "Results for:" },
+  "search.count": { ar: "نتيجة", en: "results" },
+  "search.empty": { ar: "لا توجد نتائج مطابقة", en: "No matching results" },
+  "search.emptySub": {
+    ar: "جرّبي كلمات أخرى مثل: عطر، فستان، سيروم…",
+    en: "Try other words like: perfume, dress, serum…",
+  },
+  "search.backHome": { ar: "عودة للرئيسية", en: "Back to Home" },
+  "search.meta": { ar: "نتائج البحث", en: "Search Results" },
+
+  // ── Ad details
+  "ad.details": { ar: "تفاصيل الإعلان", en: "Ad Details" },
+  "ad.priceNow": { ar: "السعر الآن", en: "Price Now" },
+  "ad.priceBefore": { ar: "قبل التخفيض", en: "Before Discount" },
+  "ad.youSave": { ar: "وفّري", en: "Save" },
+  "ad.realSaving": { ar: "توفيرك الحقيقي:", en: "Your real saving:" },
+  "ad.number": { ar: "رقم الإعلان", en: "Ad No." },
+  "ad.views": { ar: "مشاهدة", en: "Views" },
+  "ad.published": { ar: "تاريخ النشر", en: "Published" },
+  "ad.seller": { ar: "المُعلنة", en: "Posted By" },
+  "ad.visit": { ar: "زيارة صفحة المنتج", en: "Visit Product Page" },
+  "ad.contact": { ar: "تواصلي مع المُعلنة للشراء", en: "Contact the seller to buy" },
+  "ad.share": { ar: "مشاركة", en: "Share" },
+  "ad.copied": { ar: "تم النسخ!", en: "Copied!" },
+  "ad.tip": {
+    ar: "نصيحة لمسة: التقي بالبائعة في مكان عام وتأكدي من المنتج قبل الدفع",
+    en: "Lamsa tip: meet the seller in a public place and inspect the product before paying",
+  },
+  "ad.similar": { ar: "إعلانات مشابهة قد تعجبكِ", en: "Similar Ads You May Like" },
+  "ad.pausedLabel": { ar: "إيقاف مؤقت", en: "Temporarily Paused" },
+  "ad.featuredLabel": { ar: "إعلان مميز", en: "Featured Ad" },
+
+  // ── Auth
+  "auth.welcomeBack": { ar: "أهلاً بعودتكِ", en: "Welcome Back" },
+  "auth.loginSub": { ar: "سجّلي دخولك لإدارة إعلاناتك ونشر جديدك", en: "Sign in to manage your ads and post new ones" },
+  "auth.email": { ar: "البريد الإلكتروني", en: "Email Address" },
+  "auth.password": { ar: "كلمة المرور", en: "Password" },
+  "auth.passRule": { ar: "كلمة المرور (8 أحرف فأكثر)", en: "Password (8+ characters)" },
+  "auth.name": { ar: "الاسم الكامل", en: "Full Name" },
+  "auth.signIn": { ar: "تسجيل الدخول", en: "Sign In" },
+  "auth.signUp": { ar: "إنشاء الحساب", en: "Create Account" },
+  "auth.noAccount": { ar: "ليس لديكِ حساب؟", en: "Don't have an account?" },
+  "auth.createFree": { ar: "أنشئي عضويتك مجاناً", en: "Create your free account" },
+  "auth.haveAccount": { ar: "لديكِ حساب بالفعل؟", en: "Already have an account?" },
+  "auth.signInNow": { ar: "سجّلي دخولك", en: "Sign in" },
+  "auth.terms": {
+    ar: "بالتسجيل أنتِ توافقين على شروط الاستخدام وسياسة الخصوصية الخاصة بالمنصة",
+    en: "By signing up you agree to the platform's Terms of Use and Privacy Policy",
+  },
+  "auth.demo": { ar: "حسابات تجريبية للمعاينة", en: "Demo accounts for preview" },
+  "auth.demoAdmin": { ar: "لوحة الأدمن", en: "Admin Panel" },
+  "auth.demoUser": { ar: "حساب عضوة", en: "Member Account" },
+  "auth.registerTitle": { ar: "أنشئي عضويتك", en: "Create Your Account" },
+  "auth.registerSub": { ar: "دقيقة واحدة تفصلك عن نشر أول إعلان", en: "One minute away from your first ad" },
+  "auth.why": { ar: "لماذا تنضم الآلاف إلى لمسة؟", en: "Why thousands join Lamsa" },
+  "auth.perk1t": { ar: "انشري بلا حدود", en: "Post Without Limits" },
+  "auth.perk1d": { ar: "أعلني عن منتجاتك مع صور وأسعار وتخفيضات", en: "Advertise your products with photos, prices & discounts" },
+  "auth.perk2t": { ar: "أبرزي تخفيضاتك", en: "Highlight Your Discounts" },
+  "auth.perk2d": { ar: "نظام عرض السعر قبل وبعد مع نسبة الخصم تلقائياً", en: "Before/after pricing with automatic discount badges" },
+  "auth.perk3t": { ar: "عضوية مجانية", en: "Free Membership" },
+  "auth.perk3d": { ar: "التسجيل والنشر مجانيان تماماً — للأبد", en: "Sign-up and posting are completely free — forever" },
+  "auth.quote": { ar: "«كل إعلان هنا لمسةُ امرأةٍ تعرف ذوقها»", en: "“Every ad here is the touch of a woman with taste”" },
+  "auth.metaLogin": { ar: "تسجيل الدخول", en: "Sign In" },
+  "auth.metaRegister": { ar: "إنشاء حساب", en: "Sign Up" },
+
+  // ── Dashboard
+  "dash.myPanel": { ar: "لوحتي — إعلاناتي", en: "My Panel — My Ads" },
+  "dash.hello": { ar: "مرحباً", en: "Hello" },
+  "dash.sub": {
+    ar: "هنا تديرين إعلاناتك: تعديل، إيقاف، حذف — ومتابعة المشاهدات",
+    en: "Manage your ads here: edit, pause, delete — and track views",
+  },
+  "dash.total": { ar: "إجمالي إعلاناتي", en: "Total Ads" },
+  "dash.active": { ar: "إعلان نشط", en: "Active Ads" },
+  "dash.views": { ar: "مشاهدة", en: "Views" },
+  "dash.new": { ar: "إعلان جديد", en: "New Ad" },
+  "dash.empty": { ar: "لم تنشري أي إعلان بعد", en: "You haven't posted any ads yet" },
+  "dash.emptySub": {
+    ar: "ابدئي الآن — إعلانك الأول يستغرق أقل من دقيقة، وسيظهر فوراً في القسم المناسب",
+    en: "Start now — your first ad takes less than a minute and appears instantly in the right section",
+  },
+  "dash.first": { ar: "نشر أول إعلان", en: "Post Your First Ad" },
+  "dash.pauseTitle": { ar: "إيقاف مؤقت", en: "Pause" },
+  "dash.resumeTitle": { ar: "تفعيل", en: "Activate" },
+  "dash.confirmDelete": { ar: "هل أنتِ متأكدة من حذف هذا الإعلان نهائياً؟", en: "Delete this ad permanently?" },
+  "dash.backPanel": { ar: "عودة للوحتي", en: "Back to My Panel" },
+  "dash.backList": { ar: "عودة للقائمة", en: "Back to List" },
+  "dash.newTitle": { ar: "انشري إعلانك الجديد", en: "Post Your New Ad" },
+  "dash.newSub": {
+    ar: "عبّئي التفاصيل بدقة — العنوان الجذاب والصور الواضحة والتخفيض الحقيقي يضاعفون مبيعاتك",
+    en: "Fill in the details carefully — a catchy title, clear photos and a real discount multiply your sales",
+  },
+  "dash.editTitle": { ar: "تعديل الإعلان", en: "Edit Ad" },
+  "dash.metaNew": { ar: "إعلان جديد", en: "New Ad" },
+  "dash.metaEdit": { ar: "تعديل الإعلان", en: "Edit Ad" },
+
+  // ── Forms
+  "form.title": { ar: "عنوان الإعلان *", en: "Ad Title *" },
+  "form.titlePh": { ar: "مثال: مجموعة أحمر شفاه مات — 12 لون", en: "e.g., Matte lipstick set — 12 shades" },
+  "form.category": { ar: "القسم *", en: "Section *" },
+  "form.categoryPh": { ar: "اختاري القسم المناسب…", en: "Choose a section…" },
+  "form.price": { ar: "السعر *", en: "Price *" },
+  "form.oldPrice": { ar: "السعر قبل التخفيض", en: "Price Before Discount" },
+  "form.oldPriceHint": { ar: "اختياري — لإظهار نسبة الخصم", en: "Optional — shows the discount % badge" },
+  "form.url": { ar: "رابط المنتج", en: "Product Link" },
+  "form.urlHint": { ar: "يحوّل الزائرات إلى متجرك", en: "Redirects shoppers to your store" },
+  "form.desc": { ar: "وصف الإعلان", en: "Ad Description" },
+  "form.descPh": {
+    ar: "اكتبي تفاصيل المنتج: الحالة، المقاسات، الألوان المتوفرة، طريقة التوصيل…",
+    en: "Write product details: condition, sizes, available colors, delivery…",
+  },
+  "form.images": { ar: "صور الإعلان", en: "Ad Photos" },
+  "form.imagesHint": { ar: "حتى 6 صور", en: "Up to 6 photos" },
+  "form.upload": { ar: "رفع صورة", en: "Upload" },
+  "form.imgUrlPh": { ar: "أو ألصقي رابط صورة https://…", en: "Or paste an image URL https://…" },
+  "form.add": { ar: "إضافة", en: "Add" },
+  "form.mainPhoto": { ar: "رئيسية", en: "Main" },
+  "form.publish": { ar: "نشر الإعلان الآن", en: "Publish Ad Now" },
+  "form.save": { ar: "حفظ التعديلات", en: "Save Changes" },
+
+  // ── Admin shell
+  "ad.overview": { ar: "نظرة عامة", en: "Overview" },
+  "ad.sections": { ar: "الأقسام", en: "Sections" },
+  "ad.ads": { ar: "الإعلانات", en: "Ads" },
+  "ad.slots": { ar: "مساحات الإعلانات", en: "Ad Placements" },
+  "ad.users": { ar: "الأعضاء", en: "Members" },
+  "ad.settings": { ar: "إعدادات الموقع + SEO", en: "Site Settings + SEO" },
+  "ad.adsTxt": { ar: "ملف ads.txt", en: "ads.txt File" },
+  "ad.backSite": { ar: "عودة إلى الموقع", en: "Back to Site" },
+  "ad.logout": { ar: "تسجيل الخروج", en: "Sign Out" },
+
+  // ── Admin overview
+  "ao.title": { ar: "نظرة عامة", en: "Overview" },
+  "ao.sub": {
+    ar: "إدارة شاملة: الأقسام، الإعلانات، مساحات البنرات، الأعضاء، إعدادات السيو وملف ads.txt",
+    en: "Full control: sections, ads, banner placements, members, SEO settings and ads.txt",
+  },
+  "ao.totalAds": { ar: "إجمالي الإعلانات", en: "Total Ads" },
+  "ao.sections": { ar: "الأقسام", en: "Sections" },
+  "ao.members": { ar: "العضوات", en: "Members" },
+  "ao.views": { ar: "المشاهدات", en: "Views" },
+  "ao.recentAds": { ar: "أحدث الإعلانات", en: "Latest Ads" },
+  "ao.recentUsers": { ar: "أحدث العضوات", en: "Newest Members" },
+  "ao.all": { ar: "الكل", en: "All" },
+  "ao.manageAll": { ar: "إدارة الكل", en: "Manage All" },
+  "ao.slotsCard": { ar: "مساحات الإعلانات", en: "Ad Placements" },
+  "ao.slotsCardSub": { ar: "هيدر، وسط، جانب، فوتر — تحكم كامل بالبنرات", en: "Header, middle, sidebar, footer — full banner control" },
+  "ao.adminTag": { ar: "أدمن", en: "Admin" },
+  "ao.memberTag": { ar: "عضوة", en: "Member" },
+  "ao.meta": { ar: "لوحة تحكم الأدمن", en: "Admin Panel" },
+
+  // ── Admin categories
+  "ac.title": { ar: "إدارة الأقسام", en: "Manage Sections" },
+  "ac.sub": {
+    ar: "أضيفي أقساماً نسائية جديدة أو عدّلي الموجود — يظهر التغيير فوراً في الموقع",
+    en: "Add new women's sections or edit existing ones — changes appear instantly",
+  },
+  "ac.add": { ar: "إضافة قسم جديد", en: "Add New Section" },
+  "ac.edit": { ar: "تعديل قسم:", en: "Edit Section:" },
+  "ac.cancelEdit": { ar: "إلغاء التعديل والعودة لوضع الإضافة", en: "Cancel editing and switch back to add mode" },
+  "ac.current": { ar: "الأقسام الحالية", en: "Current Sections" },
+  "ac.nameAr": { ar: "اسم القسم (عربي) *", en: "Section Name (Arabic) *" },
+  "ac.nameEn": { ar: "اسم القسم (إنجليزي) *", en: "Section Name (English) *" },
+  "ac.slug": { ar: "الرابط المختصر — Slug", en: "URL Slug" },
+  "ac.slugHint": { ar: "اختياري، يُشتق من الاسم الإنجليزي", en: "Optional — derived from the English name" },
+  "ac.desc": { ar: "الوصف", en: "Description" },
+  "ac.descPh": { ar: "كل ما يخص عالم المكياج والتجميل…", en: "Everything about beauty & makeup…" },
+  "ac.icon": { ar: "أيقونة القسم", en: "Section Icon" },
+  "ac.image": { ar: "صورة الغلاف", en: "Cover Image" },
+  "ac.saveAdd": { ar: "إضافة القسم", en: "Add Section" },
+  "ac.confirmDelete": {
+    ar: "حذف هذا القسم سيحذف كل إعلاناته — متابعة؟",
+    en: "Deleting this section deletes all its ads — continue?",
+  },
+  "ac.meta": { ar: "إدارة الأقسام", en: "Manage Sections" },
+
+  // ── Admin ads
+  "aa.title": { ar: "إدارة الإعلانات", en: "Manage Ads" },
+  "aa.sub": {
+    ar: "تمييز النجمة يضع الإعلان في قسم «العروض المميزة» بالرئيسية — الإيقاف يخفيه عن الزائرات",
+    en: "The star features an ad on the homepage deals — pausing hides it from visitors",
+  },
+  "aa.all": { ar: "جميع الإعلانات", en: "All Ads" },
+  "aa.empty": { ar: "لا توجد إعلانات بعد", en: "No ads yet" },
+  "aa.feature": { ar: "تمييز في الرئيسية", en: "Feature on homepage" },
+  "aa.unfeature": { ar: "إزالة من المميزة", en: "Remove featured" },
+  "aa.productLink": { ar: "رابط المنتج", en: "Product link" },
+  "aa.confirmDelete": { ar: "حذف هذا الإعلان نهائياً؟", en: "Delete this ad permanently?" },
+  "aa.meta": { ar: "إدارة الإعلانات", en: "Manage Ads" },
+
+  // ── Admin slots
+  "as.title": { ar: "مساحات الإعلانات", en: "Ad Placements" },
+  "as.sub": {
+    ar: "تحكّمي بالبنرات الإعلانية في أربعة مواضع: الهيدر، وسط الرئيسية، الشريط الجانبي، والفوتر. يمكن رفع صورة بنر مع رابط، أو لصق كود HTML/Script لشبكة إعلانية خارجية.",
+    en: "Control ad banners in four positions: header, home middle, sidebar and footer. Upload a banner image with a link, or paste an HTML/Script code from an external ad network.",
+  },
+  "as.add": { ar: "إضافة مساحة إعلانية", en: "Add Placement" },
+  "as.edit": { ar: "تعديل:", en: "Edit:" },
+  "as.current": { ar: "المساحات الحالية", en: "Current Placements" },
+  "as.empty": { ar: "لا توجد مساحات إعلانية — أضيفي أول بنر من النموذج", en: "No placements yet — add your first banner" },
+  "as.name": { ar: "اسم المساحة الإعلانية *", en: "Placement Name *" },
+  "as.namePh": { ar: "مثال: بنر تخفيضات الصيف", en: "e.g., Summer sale banner" },
+  "as.position": { ar: "موضع الظهور *", en: "Position *" },
+  "as.header": { ar: "الهيدر", en: "Header" },
+  "as.headerDesc": { ar: "أعلى الموقع أسفل القائمة", en: "Top of site below the navbar" },
+  "as.middle": { ar: "الوسط", en: "Middle" },
+  "as.middleDesc": { ar: "بين أقسام الصفحة الرئيسية", en: "Between home sections" },
+  "as.sidebar": { ar: "الجانب", en: "Sidebar" },
+  "as.sidebarDesc": { ar: "الشريط الجانبي لصفحات الأقسام", en: "Sidebar of section pages" },
+  "as.footer": { ar: "الفوتر", en: "Footer" },
+  "as.footerDesc": { ar: "أسفل الموقع قبل التذييل", en: "Bottom of site before footer" },
+  "as.image": { ar: "صورة البنر", en: "Banner Image" },
+  "as.link": { ar: "رابط الوجهة عند الضغط", en: "Destination Link" },
+  "as.html": { ar: "أو كود إعلاني HTML / Script", en: "Or HTML / Script ad code" },
+  "as.htmlHint": { ar: "إن وُجد يتجاوز الصورة — مثل أكواد أدسنس", en: "Overrides the image if present — e.g., AdSense code" },
+  "as.customHtml": { ar: "كود HTML مخصص", en: "Custom HTML code" },
+  "as.visible": { ar: "ظاهر", en: "Visible" },
+  "as.hidden": { ar: "مخفي", en: "Hidden" },
+  "as.showHide": { ar: "إظهار / إخفاء", en: "Show / Hide" },
+  "as.posHeader": { ar: "الهيدر — أعلى الموقع", en: "Header — top of site" },
+  "as.posMiddle": { ar: "الوسط — الرئيسية", en: "Middle — homepage" },
+  "as.posSidebar": { ar: "الجانب — صفحات الأقسام", en: "Sidebar — section pages" },
+  "as.posFooter": { ar: "الفوتر — أسفل الموقع", en: "Footer — bottom of site" },
+  "as.confirmDelete": { ar: "حذف هذه المساحة نهائياً؟", en: "Delete this placement permanently?" },
+  "as.meta": { ar: "مساحات الإعلانات", en: "Ad Placements" },
+
+  // ── Admin settings
+  "set.title": { ar: "إعدادات الموقع", en: "Site Settings" },
+  "set.sub": {
+    ar: "اسم الموقع، الوصف، الكلمات المفتاحية، العملة، وملف ads.txt — كلها تنعكس مباشرة على الواجهة ووسوم السيو.",
+    en: "Site name, description, keywords, currency and ads.txt — all instantly reflected on the UI and SEO tags.",
+  },
+  "set.identity": { ar: "هوية الموقع", en: "Site Identity" },
+  "set.identitySub": {
+    ar: "اسم الموقع يظهر في الشعار والعنوان — استخدموا الصيغة «الاسم العربي | ENGLISH» لعرض اللغتين.",
+    en: "The site name appears in the logo & title — use «الاسم العربي | ENGLISH» to show both languages.",
+  },
+  "set.siteName": { ar: "اسم الموقع", en: "Site Name" },
+  "set.siteNameHint": { ar: "يظهر في الشعار وعنوان المتصفح", en: "Shown in the logo and browser title" },
+  "set.tagline": { ar: "الشعار النصي (Tagline)", en: "Tagline" },
+  "set.currency": { ar: "العملة", en: "Currency" },
+  "set.currencyHint": { ar: "مثال: ر.س، د.إ، $", en: "e.g., SAR, AED, $" },
+  "set.email": { ar: "بريد التواصل", en: "Contact Email" },
+  "set.instagram": { ar: "رابط انستقرام", en: "Instagram URL" },
+  "set.twitter": { ar: "رابط منصة إكس", en: "X (Twitter) URL" },
+  "set.seo": { ar: "إعدادات السيو — SEO", en: "SEO Settings" },
+  "set.seoSub": {
+    ar: "هذه البيانات تُحقن تلقائياً في وسوم Meta وOpen Graph وخريطة الموقع لتحسين ظهورك في محركات البحث.",
+    en: "Automatically injected into Meta, Open Graph and the sitemap to boost your search ranking.",
+  },
+  "set.desc": { ar: "وصف الموقع (Meta Description)", en: "Site Description (Meta Description)" },
+  "set.descHint": { ar: "يُفضّل بين 120 و160 حرفاً", en: "120–160 characters recommended" },
+  "set.keywords": { ar: "الكلمات المفتاحية (Keywords)", en: "Keywords" },
+  "set.adsTxtTitle": { ar: "ملف ads.txt", en: "ads.txt File" },
+  "set.adsTxtSub": {
+    ar: "يُقدَّم مباشرة على المسار /ads.txt — الصقوا المحتوى أو ارفعوا ملف ads.txt من جهازكم وسيُستبدل المحتوى تلقائياً.",
+    en: "Served live at /ads.txt — paste the content or upload an ads.txt file from your device to replace it automatically.",
+  },
+  "set.preview": { ar: "معاينة الملف المباشر", en: "Preview live file" },
+  "set.upload": { ar: "رفع ملف ads.txt", en: "Upload ads.txt" },
+  "set.save": { ar: "حفظ جميع الإعدادات", en: "Save All Settings" },
+  "set.saved": { ar: "تم حفظ الإعدادات بنجاح — انعكست على كامل الموقع", en: "Settings saved — applied across the whole site" },
+  "set.meta": { ar: "إعدادات الموقع والسيو", en: "Site Settings & SEO" },
+
+  // ── Admin users
+  "au.title": { ar: "إدارة الأعضاء", en: "Manage Members" },
+  "au.sub": {
+    ar: "ترقية عضوة إلى أدمن أو حذف الحسابات المخالفة — حذف العضوة يحذف إعلاناتها",
+    en: "Promote members to admin or delete abusive accounts — deleting a member deletes their ads",
+  },
+  "au.all": { ar: "الأعضاء المسجلون", en: "Registered Members" },
+  "au.you": { ar: "أنتِ", en: "You" },
+  "au.joined": { ar: "انضمت", en: "Joined" },
+  "au.promote": { ar: "ترقية إلى أدمن", en: "Promote to admin" },
+  "au.demote": { ar: "تنزيل إلى عضوة", en: "Demote to member" },
+  "au.confirmPromote": { ar: "منح هذه العضوة صلاحيات الأدمن الكاملة؟", en: "Grant this member full admin rights?" },
+  "au.confirmDemote": { ar: "تنزيل هذه العضوة من الأدمن إلى عضوة عادية؟", en: "Demote this admin to a regular member?" },
+  "au.confirmDelete": { ar: "حذف هذا الحساب وكل إعلاناته نهائياً؟", en: "Delete this account and all its ads permanently?" },
+  "au.meta": { ar: "إدارة الأعضاء", en: "Manage Members" },
+
+  // ── Not found / misc
+  "nf.title": { ar: "الصفحة غير موجودة", en: "Page Not Found" },
+  "nf.sub": {
+    ar: "يبدو أن الرابط الذي تحاولين الوصول إليه غير متاح أو تم نقله — لا تقلقي، الجمال ينتظرك في الصفحة الرئيسية.",
+    en: "The link you're trying to reach is unavailable or has moved — don't worry, beauty awaits you on the homepage.",
+  },
+  "nf.home": { ar: "العودة للرئيسية", en: "Back to Home" },
+};
+
+export function tr(locale: Locale, key: string): string {
+  const entry = dict[key];
+  if (!entry) return key;
+  return entry[locale];
+}
+
+export function pick<T extends { nameAr: string; nameEn: string }>(locale: Locale, item: T): string {
+  return locale === "en" ? item.nameEn : item.nameAr;
+}
